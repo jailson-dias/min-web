@@ -1,0 +1,271 @@
+{
+    "usage": {
+        "text_units": 1,
+        "text_characters": 7309,
+        "features": 1
+    },
+    "retrieved_url": "https://www.endocrino.org.br/10-coisas-que-voce-precisa-saber-sobre-cirurgia-bariatrica/",
+    "language": "pt",
+    "entities": [
+        {
+            "type": "CIRURGIABARIATICA",
+            "text": "cirurgia bariátrica",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "CIRURGIABARIATICA",
+            "text": "cirurgia bariátrica",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "DIABETES",
+            "text": "diabetes",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "ALIMENTACAO",
+            "text": "vista nutricional",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "CIRURGIABARIATICA",
+            "text": "cirurgia bariátrica",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "ALIMENTACAO",
+            "text": "dieta qualitativamente adequada",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "DIABETES",
+            "text": "maior a chance",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "DIABETES",
+            "text": "hipoglicemia",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "ALIMENTACAO",
+            "text": "hábitos alimentares",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "CIRURGIABARIATICA",
+            "text": "cirurgia bariátrica",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "DIABETES",
+            "text": "Obesidade",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "DIABETES",
+            "text": "Obesidade da SBEM gestão 2017-2018",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "HIPERTENCAO",
+            "text": "hipertensão arterial",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "HIPERTENCAO",
+            "text": "Obesidade",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "DIABETES",
+            "text": "Diabetes",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "HIPERTENCAO",
+            "text": "evento",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "DIABETES",
+            "text": "Diabetes",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "DIABETES",
+            "text": "Endocrinologia da Bahia",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "DIABETES",
+            "text": "CEDEBA",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "DIABETES",
+            "text": "diabetes",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "CIRURGIABARIATICA",
+            "text": "Gastroplastia",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "ALIMENTACAO",
+            "text": "alimentos",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "HIPERTENCAO",
+            "text": "desvio do trânsito intestinal",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "DIABETES",
+            "text": "glicemia",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "CIRURGIABARIATICA",
+            "text": "cirurgia bariátrica",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        },
+        {
+            "type": "HIPERTENCAO",
+            "text": "obesidade",
+            "disambiguation": {
+                "subtype": [
+                    "NONE"
+                ]
+            },
+            "count": 1
+        }
+    ]
+}
