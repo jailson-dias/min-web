@@ -1,7 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import http from 'http';
-import { NaturalLanguageUnderstandingV1 } from 'watson-developer-cloud';
+import { NaturalLanguageUnderstandingV1,
+         NaturalLanguageClassifierV1 } from 'watson-developer-cloud';
 
 let app = express();
 
@@ -14,6 +15,11 @@ const naturalLanguageUnderstanding = new NaturalLanguageUnderstandingV1({
   version: '2018-11-06',
   iam_apikey: 'nWIUdYcZDqxWnqhz3ACTynS5zsZqdI9MlOcS4WexgyCl',
   url: 'https://gateway.watsonplatform.net/natural-language-understanding/api'
+});
+
+const naturalLanguageClassifier = new NaturalLanguageClassifierV1({
+  iam_apikey: 'BewA4lI45fs9zYRQt3oqdp95x8LZoSMbhYiDleJnDa8b',
+  url: 'https://gateway.watsonplatform.net/natural-language-classifier/api'
 });
 
 app.post('/analyze', (req, res) => {
@@ -36,6 +42,22 @@ app.post('/analyze', (req, res) => {
       res.status(500).json({ message: 'internal server error' });
     }
   })
+});
+
+app.post('/classify', (req, res) => {
+  const text = req.body.text;
+
+  naturalLanguageClassifier.classify({
+    text,
+    classifier_id: 'cd1030x458-nlc-860' },
+    function(err, response) {
+      if (err) {
+        console.log('error:', err);
+        res.status(500).json({message: 'internal server error'})
+      } else {
+        res.status(200).json(response);
+      }
+  });
 });
 
 const port = app.get('port');
