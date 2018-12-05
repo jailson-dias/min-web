@@ -23,14 +23,11 @@ class ObesitySpider(scrapy.Spider):
         file.close()
         domain = response.url.split('/')[2]
         text = ''
-        if domain =="www.endocrino.org.br":
-            text = 'pending'
-        else:
-            paragraphs = response.xpath("//p")
-            for p in paragraphs:
-                paragraph = p.xpath("text()").extract_first()
-                if paragraph != None:
-                    text = text + paragraph + '\n'
+        paragraphs = response.xpath("//p")
+        for p in paragraphs:
+            paragraph = p.xpath("text()").extract_first()
+            if paragraph != None:
+                text = text + paragraph + '\n'
         file = open("/src/pages/jsons/" + response.url.replace('/', '_') + '.json', 'w')
         data = {"url": response.url, "text": text}
         file.write(json.dumps(data))
