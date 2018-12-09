@@ -20,7 +20,7 @@ terms = {
     'hipertensao': 'doenca-cardio-vascular',
     'hipertensao': 'cardiaco',
     'cirurgiaBariatrica': 'morbidade',
-    'cirurgiaBariatrica': 'morbido'
+    'cirurgiaBariatrica': 'morbido',
     'cirurgiaBariatrica': 'Gordo',
     'alimentacao': 'triglicerídeo',
     'alimentacao': 'fígado',
@@ -72,7 +72,7 @@ terms = {
     'cirurgiaBariatrica': 'Fertilidade',
     'cirurgiaBariatrica': 'Sexo',
     'cirurgiaBariatrica': 'Osteoporose',
-    'Entalamento',
+    'cirurgiaBariatrica':'Entalamento',
     'cirurgiaBariatrica': 'Entalar',
     'cirurgiaBariatrica':'Nausea',
     'cirurgiaBariatrica': 'Vomito',
