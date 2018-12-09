@@ -3,18 +3,99 @@
 
 import scrapy, json
 
+terms = { 
+    'diabetes': 'glicose',
+    'hipertensao': 'pressao-aeterial',
+    'hipertensao': 'hipertensão',
+    'alimentacao': 'acucar',
+    'alimentacao': 'gordura',
+    'cirurgiaBariatrica': 'peso',
+    'cirurgiaBariatrica': 'Obesidade',
+    'cirurgiaBariatrica': 'cirurgia-bariatrica',
+    'hipertensao': 'coração',
+    'diabetes': 'pancreas',
+    'cirurgiaBariatrica': 'estomago',
+    'hipertensao': 'colesterol',
+    'alimentacao': 'gastrite',
+    'hipertensao': 'doenca-cardio-vascular',
+    'hipertensao': 'cardiaco',
+    'cirurgiaBariatrica': 'morbidade',
+    'cirurgiaBariatrica': 'morbido'
+    'cirurgiaBariatrica': 'Gordo',
+    'alimentacao': 'triglicerídeo',
+    'alimentacao': 'fígado',
+    'cirurgiaBariatrica': 'alcoolismo',
+    'diabetes': 'insulina',
+    'cirurgiaBariatrica': 'Imc',
+    'alimentacao': 'comida',
+    'alimentacao': 'alimentacao-saudavel',
+    'alimentacao': 'frutas',
+    'alimentacao': 'hdl',
+    'alimentacao': 'ldl',
+    'cirurgiaBariatrica': 'bariátrica',
+    'cirurgiaBariatrica': 'estomago',
+    'cirurgiaBariatrica': 'apneia',
+    'cirurgiaBariatrica': 'Peso',
+    'alimentacao': 'Strogonoff',
+    'alimentacao': 'Lasanha',
+    'alimentacao': 'Macarronada',
+    'alimentacao': 'Fruta',
+    'cirurgiaBariatrica': 'sobrepeso',
+    'alimentacao': 'Aveia',
+    'alimentacao': 'Fibras', 
+    'alimentacao': 'Cereais', 
+    'alimentacao': 'Verdura', 
+    'alimentacao': 'Proteína',
+    'alimentacao': 'Carboidrato',
+    'alimentacao': 'Dieta',
+    'cirurgiaBariatrica': 'Hérnia',
+    'cirurgiaBariatrica': 'Laparoscopia',
+    'cirurgiaBariatrica': 'dor-nas-juntas',
+    'hipertensao': 'Infarto',
+    'hipertensao': 'coronaria',
+    'cirurgiaBariatrica': 'gastrico',
+    'cirurgiaBariatrica': 'Gastro',
+    'alimentacao': 'Nutricionista', 
+    'hipertensao': 'Cardiologista',
+    'alimentacao': 'Granola',
+    'alimentacao': 'Manga', 
+    'alimentacao': 'Cha-verde',
+    'alimentacao': 'Emagrece',
+    'alimentacao': 'Chá preto',
+    'alimentacao': 'Chia',
+    'alimentacao': 'Lichia',
+    'alimentacao': 'Jamelão',
+    'alimentacao': 'Aveia',
+    'diabetes':'Glicosimetro',
+    'hipertensao': 'Esfigmomanometro',
+    'cirurgiaBariatrica': 'Artrose',
+    'cirurgiaBariatrica': 'Fertilidade',
+    'cirurgiaBariatrica': 'Sexo',
+    'cirurgiaBariatrica': 'Osteoporose',
+    'Entalamento',
+    'cirurgiaBariatrica': 'Entalar',
+    'cirurgiaBariatrica':'Nausea',
+    'cirurgiaBariatrica': 'Vomito',
+    'diabetes': 'Hemoglobina glicada',
+    'diabetes': 'Hiperglicemia',
+    'cirurgiaBariatrica': 'Hipoglicemia',
+    'diabetes': 'Pre-diabetico',
+    'diabetes': 'Diabetico',
+    'cirurgiaBariatrica': 'Cigarro',
+    'cirurgiaBariatrica': 'Fumo',
+    'cirurgiaBariatrica':'Tabagismo' 
+}
+
 class ObesitySpider(scrapy.Spider):
     name = 'obesity'
     allowed_domains = [
         'saudebemestar.com.pt', 
        'www.tuasaude.com', 
-        'www.endocrino.org.br',
     ]
     start_urls = [
         'https://saudebemestar.com.pt/category/nutricao-e-exercicio/',
         'https://saudebemestar.com.pt/category/prevencao-e-vida-saudavel/',
         'https://www.tuasaude.com/diabetes-tipo-2/',
-        'https://www.endocrino.org.br/10-coisas-que-voce-precisa-saber-sobre-hipertensao/',
     ]
 
     def save(self, response):
@@ -49,4 +130,3 @@ class ObesitySpider(scrapy.Spider):
             link = selector.xpath("@href").extract_first()
             request = response.follow(link, callback=self.parse)
             yield request
-
