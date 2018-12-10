@@ -2,8 +2,9 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import http from 'http';
 import { NaturalLanguageUnderstandingV1,
-         NaturalLanguageClassifierV1 } from 'watson-developer-cloud';
-
+         NaturalLanguageClassifierV1,
+         DiscoveryV1 } from 'watson-developer-cloud';
+         
 let app = express();
 
 app.set('port', process.env.PORT || 3000);
@@ -20,6 +21,12 @@ const naturalLanguageUnderstanding = new NaturalLanguageUnderstandingV1({
 const naturalLanguageClassifier = new NaturalLanguageClassifierV1({
   iam_apikey: 'BewA4lI45fs9zYRQt3oqdp95x8LZoSMbhYiDleJnDa8b',
   url: 'https://gateway.watsonplatform.net/natural-language-classifier/api'
+});
+
+const discovery = new DiscoveryV1({
+  version: '2018-12-03',
+  iam_apikey: 'ta7yULFv6MXTOSR9XbMN4GiTUd3gDkW5_iukw362UqEd',
+  url: 'https://gateway.watsonplatform.net/discovery/api'
 });
 
 app.post('/analyze', (req, res) => {
@@ -60,16 +67,23 @@ app.post('/classify', (req, res) => {
   });
 });
 
+app.post('/sumarize', (req, res) => {
+  discovery.query({
+    environment_id: 'e1d0e813-5dd8-450b-94c0-a16c729ae0c6',
+    collection_id: '650d3842-4df7-4064-a0f1-b4900ebbe0d1',
+    natural_language_query: 'qual a parte mais relevante do texto?'
+  }, (err, response) => {
+    if (err) {
+      console.log('error: ', err);
+      res.status(500).json({ message: 'internal server error' });
+    } else {
+      res.status(200).json(response);
+    }
+  });
+});
+
 const port = app.get('port');
 http.createServer(app).listen(port, () => {
   console.log(`Express server listening on port ${port}`);
 });
 
-var urls = [
-  ['https://www.endocrino.org.br/10-coisas-que-voce-precisa-saber-sobre-diabetes/', 'diabetes'],
-  ['https://www.endocrino.org.br/10-coisas-que-voce-precisa-saber-sobre-obesidade/', 'obesidade'],
-  ['https://www.endocrino.org.br/10-coisas-que-voce-precisa-saber-sobre-hipertensao/', 'hipertensao'],
-  ['https://www.tuasaude.com/diabetes-tipo-2/', 'diabetes'],
-  ['https://www.tuasaude.com/o-que-comer-na-diabetes/', 'alimentacao'],
-  ['http://prevencao.cardiol.br/fatores-de-risco/hipertensao.asp', 'hipertensao'] 
-]
