@@ -120,13 +120,13 @@ class ObesitySpider(scrapy.Spider):
     def is_article(self, response):
         if response.url.split('/')[2] in ['saudebemestar.com.pt', 'www.tuasaude.com', 'www.endocrino.org.br']:
             if response.url.count('/') == 4 and response.url.count('?') == 0:
-                ret = False
+                ret = 0
                 words = re.sub("[^\w]", " ",  self.get_text(response)).split()
                 for uword in words:
                     word = uword.lower()
                     if word in terms:
-                        ret = True
-                return ret
+                        ret = ret + 1
+                return ret >= 5
         return False
 
     def parse(self, response):
