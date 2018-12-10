@@ -30,13 +30,12 @@ for site in jsons:
         if (label[0] == site[0]):
             base.append({
                 'url': site[0],
-                'text': site[1][:1024],
+                'text': str(site[1].encode('utf-8').decode('utf-8')[:1024]),
                 'label': label[1]
             })
             break
 
 with open('./labelsjson.json', 'w') as f:
-    json.dump(base, f, indent=4)
+    json.dump(base, f, indent=4, ensure_ascii=False)
 
 print (base)
-
