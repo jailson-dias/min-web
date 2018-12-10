@@ -8,7 +8,7 @@ def readJson(file):
         # print (data['url'] == 'https://ansjbfds.adsf.ds')
         # print (f.name)
 
-        return [data['url'], data['text']]
+        return [data['url'], data['text'], f.name]
 
 def readCsv(file):
     with open(file) as f:
@@ -28,6 +28,9 @@ base = []
 for site in jsons:
     for label in labels:
         if (label[0] == site[0]):
+            # print(site[2].split('/')[-1])
+            with open('./selecteds/'+site[2].split('/')[-1] + '.txt', 'w') as f:
+                f.write(site[1])
             base.append({
                 'url': site[0],
                 'text': str(site[1].encode('utf-8').decode('utf-8')[:1024]),
@@ -38,4 +41,4 @@ for site in jsons:
 with open('./labelsjson.json', 'w') as f:
     json.dump(base, f, indent=4, ensure_ascii=False)
 
-print (base)
+# print (base)

@@ -12,7 +12,7 @@
         <v-list-tile
           v-for="item in items"
           :key="item.title"
-          @click="changeCategory(item.title)"
+          @click="changeCategory(item.category)"
           :class="{
             'category-active': selected == item.title,
             'category-inactive': selected != item.title
@@ -33,7 +33,7 @@
             :key="index"
             class="cards"
             :text="card.text"
-            :link="card.link"
+            :link="card.url"
           ></card>
         </v-layout>
       </v-container>
@@ -44,40 +44,31 @@
 <script>
 import Card from "../components/Card";
 
+import data from "../labelsjson2";
+
 export default {
   data() {
     return {
-      selected: "Diabetes",
+      selected: "cirurgia_bariatrica",
       items: [
-        { title: "Cirurgia Bariátrica", url: "" },
-        { title: "Diabetes", url: "" },
-        { title: "Hipertensão", url: "" },
-        { title: "Alimentação", url: "" }
-      ],
-      cards: [
-        {
-          text:
-            "Lorem ipsum euismod cubilia nunc lacinia odio id etiam ultricies pellentesque ac donec potenti, taciti sociosqu sagittis euismod lobortis iaculis curae felis consequat enim purus. at venenatis eleifend class proin sodales vulputate congue, duis eros aliquam habitant molestie faucibus, donec viverra a scelerisque commodo curae. gravida varius pellentesque platea varius odio class cursus phasellus nullam erat bibendum, ut ad id et arcu justo consectetur mauris elementum. quisque aenean ipsum justo ante mi posuere vehicula libero, quam imperdiet primis cras et scelerisque nisi, imperdiet suspendisse elementum interdum eleifend at egestas. ut felis neque nullam congue integer sit, sagittis ac ut nisl. ",
-          link: "https://www.4devs.com.br/gerador_de_texto_lorem_ipsum"
-        },
-        {},
-        {},
-        {},
-        {},
-        {},
-        {}
+        { title: "Cirurgia Bariátrica", category: "cirurgia_bariatrica" },
+        { title: "Diabetes", category: "diabetes" },
+        { title: "Hipertensão", category: "hipertensao" },
+        { title: "Alimentação", category: "alimentacao" }
       ]
     };
   },
   components: { Card },
   computed: {
     cardsList() {
-      return this.cards;
+      let d = data.filter(i => i.watsonLabel == this.selected);
+      // console.log(this.selected, data);
+      return d;
     }
   },
   methods: {
     changeCategory(category) {
-      console.log(category);
+      // console.log(category);
       this.selected = category;
     }
   }
